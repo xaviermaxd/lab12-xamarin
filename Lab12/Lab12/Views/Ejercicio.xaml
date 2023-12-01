@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab12.Views.Ejercicio">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+
+
+            <Label Text="Title" FontAttributes="Bold" FontSize="Title"/>
+            <Entry Placeholder="Title" FontSize="Title" Text="{Binding Title}"></Entry>
+            <Label Text="Desc" FontAttributes="Bold" FontSize="Title"/>
+            <Entry Placeholder="Desc" FontSize="Title" Text="{Binding Desc}"></Entry>
+            <Label Text="States" FontAttributes="Bold" FontSize="Title"/>
+            
+            <Picker SelectedItem="{Binding SelectedStatus, Mode=TwoWay}">
+                <Picker.Items>
+                    <x:String>activo</x:String>
+                    <x:String>desactivo</x:String>
+                </Picker.Items>
+            </Picker>
+
+
+
+            <Button Command="{Binding Save}" Text="Grabar" Background="white" TextColor="blue" FontSize="Title" FontAttributes="Bold"></Button>
+
+            <Button Command="{Binding Get}" Text="Listar" Background="white" TextColor="Red" FontSize="Title" FontAttributes="Bold"></Button>
+
+
+            <ListView ItemsSource="{Binding Tasks}">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Orientation="Horizontal" Spacing="50" BackgroundColor="Gray">
+                                    <Label Text="{Binding Title}"></Label>
+                                    <Label Text="{Binding Desc}"></Label>
+                                <Label Text="{Binding SelectedStatus}"></Label>
+                            </StackLayout>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
